@@ -31,7 +31,7 @@ struct Student
 	void PrintMarks() {
 		for (size_t i = 0; i < size; i++)
 		{
-			std::cout << "Оценка № " << i + 1 << " " << marks[i] << "\n"
+			std::cout << "Оценка № " << i + 1 << " " << marks[i] << "\n";
 		}
 	}
 
@@ -43,11 +43,11 @@ struct Student
 	{
 		this->firstName = firstName;
 	}
-	void SetFirstName(std::string lastName)
+	void SetLastName(std::string lastName)
 	{
 		this->lastName = lastName;
 	}
-	void SetFirstName(std::string surName)
+	void SetSurName(std::string surName)
 	{
 		this->surName = surName;
 	}
@@ -113,6 +113,7 @@ struct Student
 		std::cin >> groupName;
 		std::cout << "Номер группы студента: ";
 		std::cin >> groupNumber;
+		SetStudentMarks();
 	}
 
 	int GetAge() {
