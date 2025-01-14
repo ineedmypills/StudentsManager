@@ -16,10 +16,23 @@ struct Student
 	bool isStudent = true;
 	const static int size = 5;
 	int marks[size];
+	std::string groupNameArr[5]{ "РПО","ГД","КБ","ИМ","Т" };
 
 	void RefreshFullName()
 	{
 		fullName = lastName + " " + firstName + " " + surName;
+	}
+	void PrintGroupNames() {
+		for (size_t i = 0; i < 5; i++)
+		{
+			std::cout << groupNameArr[i];
+		}
+	}
+	void PrintMarks() {
+		for (size_t i = 0; i < size; i++)
+		{
+			std::cout << "Оценка № " << i + 1 << " " << marks[i] << "\n"
+		}
 	}
 
 	void SetAge(int age)
@@ -60,10 +73,10 @@ struct Student
 
 	void SetStudentMarks() {
 		double average{};
-		std::cout << "Заполнение оценок студента: " << GetFullName() << "\n\n";
+		std::cout << "Заполнение оценок студента " << GetFullName() << ":\n";
 		for (size_t i = 0; i < size; i++)
 		{
-			std::cout << "Оценка № " << i + 1 << ": ";
+			std::cout << "Оценка №" << i + 1 << ": ";
 			std::cin >> marks[i];
 			average += marks[i];
 		}
@@ -71,14 +84,14 @@ struct Student
 		if (average < 3.0)
 		{
 			isStudent = false;
-			std::cout << "Студент отчислен!";
+			std::cout << "Студент отчислен!\n";
 		}
 		else
 		{
 			if (isStudent == false)
 			{
 				isStudent = true;
-				std::cout << "Студент восстановлен!";
+				std::cout << "Студент восстановлен!\n";
 			}
 			else {
 				isStudent = true;
@@ -95,6 +108,11 @@ struct Student
 		std::cout << "Отчество студента: ";
 		std::cin >> surName;
 		RefreshFullName();
+		PrintGroupNames();
+		std::cout << "Кафедра студента: ";
+		std::cin >> groupName;
+		std::cout << "Номер группы студента: ";
+		std::cin >> groupNumber;
 	}
 
 	int GetAge() {
@@ -124,9 +142,17 @@ struct Student
 	{
 		std::cout << "Возраст: " << age << std::endl;
 		std::cout << "ФИО: " << fullName << std::endl;
-		std::cout << "Название группы: " << groupName << std::endl;
-		std::cout << "Номер группы: " << groupName << std::endl;
-		std::cout << "Оценки: " << age << std::endl;
+		std::cout << "Группа: " << groupName << "-" << groupNumber << std::endl;
+		PrintMarks();
+		std::cout << "Статус студента: " << std::endl;
+		if (isStudent == true)
+		{
+			std::cout << "Живой-здоровый!" << std::endl;
+		}
+		else
+		{
+			std::cout << "Мёртв." << std::endl;
+		}
 	}
 };
 
@@ -138,6 +164,13 @@ int main()
 
 	const int size = 3;
 	Student rpo_11[size];
-
+	for (size_t i = 0; i < size; i++)
+	{
+		rpo_11[i].SetAllInformation();
+	}
+	for (size_t i = 0; i < size; i++)
+	{
+		rpo_11[i].ShowInfo();
+	}
 	return 0;
 }
