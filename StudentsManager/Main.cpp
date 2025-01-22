@@ -6,6 +6,17 @@
 
 struct Student
 {
+
+	Student() 
+	{
+
+	}
+
+	Student(int age) 
+	{
+		this->age = age;
+	}
+
 	unsigned int age = 0;
 	std::string firstName;
 	std::string lastName;
@@ -16,7 +27,13 @@ struct Student
 	bool isStudent = true;
 	const static int size = 5;
 	int marks[size];
-	std::string groupNameArr[5]{ "ĞÏÎ","ÃÄ","ÊÁ","ÈÌ","Ò" };
+	std::string groupNameArr[size
+	
+	
+	
+	
+	
+	]{ "ĞÏÎ","ÃÄ","ÊÁ","ÈÌ","Ò" };
 
 	void RefreshFullName()
 	{
